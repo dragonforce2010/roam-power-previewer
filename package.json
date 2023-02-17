@@ -1,0 +1,21 @@
+{
+  "name": "power-link-parser",
+  "version": "1.0.0",
+  "scripts": {
+    "prebuild:roam": "npm install",
+    "build:roam": "roamjs-scripts build --depot",
+    "dev": "roamjs-scripts dev --depot"
+  },
+  "dependencies": {
+    "@blueprintjs/popover2": "^1.11.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "axios": "^1.3.2",
+    "dotenv": "^10.0.0",
+    "nearley": "^2.20.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "roamjs-scripts": "^0.26.26",
+    "tslib": "^2.5.0"
+  }
+}
