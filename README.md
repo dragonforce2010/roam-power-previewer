@@ -1,7 +1,9 @@
-# Roam Website Title Parser
+# Roam Power Previewer
 
-This extension can parse the website title and transform the link to the markdown format when you paste a url into roam block
+This extension can preview a website content in the sidedrawer, which gives a better roam experience - neat clean notes and easiy preview the website content without going out of roam, to help you focus more in the roam.
 
-For example, when you paste a link like this `https://developer.roamjs.com/`, this extension is gonna transform it to [Introduction - RoamJS](https://developer.roamjs.com/)
+This extension's whole idea is to let you stay in roam to focus on your work without going out and meanwhile keep you roam notes clean, without too much blocks nested within which could disturb a lot.
 
-![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FMichaelSpace%2FruNVIgy83L.gif?alt=media&token=13eaa21f-55d4-41e1-9f39-6645b75b7976)
+For now, it can only preview the website content, but in the feature, I tend to have more contents in the roam can be previewed in the same way. Reach me out if you have any feature request.
+
+![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FExploreSpace%2FgnDYv5fQh2.59.25.gif?alt=media&token=5b4399c6-f44f-4da4-a551-dd44b5f7a30f)

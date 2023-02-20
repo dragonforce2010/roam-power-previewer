@@ -8,7 +8,6 @@ const onClick = (e: MouseEvent) => {
   }
 
   let root = document.createElement('div')
-  // alert(e.target)
   const url = (e.target as HTMLAnchorElement).href
   const title = (e.target as HTMLAnchorElement).textContent
 
