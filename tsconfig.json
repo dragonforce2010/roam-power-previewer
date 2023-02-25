@@ -2,4 +2,9 @@
   "extends": "./node_modules/roamjs-scripts/default.tsconfig.json",
   "include": ["src"],
   "exclude": ["node_modules"],
+  "compilerOptions": {
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
 }
