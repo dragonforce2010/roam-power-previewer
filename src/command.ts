@@ -24,9 +24,19 @@ const initCommand = () => {
       "callback": () => {
         console.log(command.name)
         renderTargetInSidedrawer(command.url, command.title)
+        configIframe()
       }
     })
   }
+}
+
+// Prevent the link from opening in a new window
+function configIframe() {
+  var links = document.querySelectorAll('iframe a')
+  // Loop through the links
+  links.forEach(function (link) {
+    link.setAttribute('target', '_self')
+  })
 }
 
 export { initCommand }

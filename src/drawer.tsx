@@ -39,8 +39,7 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
     size={size}
   >
     <div style={{ height: "100%", width: "100%" }}>
-      {error && <div>目标页面不支持iframe加载</div>}
-      {!error && <iframe src={url} style={{ height: "100%", width: "100%", border: "none" }} onError={(err) => {
+      {!error && <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms" src={url} style={{ height: "100%", width: "100%", border: "none" }} onError={(err) => {
         setError(true)
         console.log('onerror:', err)
       }}></iframe>}
