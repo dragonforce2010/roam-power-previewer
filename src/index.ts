@@ -4,6 +4,7 @@ import SideDrawer from './drawer'
 import '../types'
 import { initCommand } from './command'
 import { renderTargetInSidedrawer } from './utils'
+import './index.css'
 
 const onClick = (e: MouseEvent) => {
   // will not do the sidebar preview if user presses the ctrl key, meta key or shift key
@@ -11,7 +12,11 @@ const onClick = (e: MouseEvent) => {
     return
   }
 
-  if (!(e.target as HTMLElement).classList.contains('rm-alias--external')) {
+  console.log(e.target)
+
+  const targetElement = e.target as HTMLElement
+
+  if (!targetElement.classList.contains('rm-alias--external') && targetElement.tagName.toLowerCase() != 'a') {
     return
   }
 
