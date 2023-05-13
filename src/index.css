@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
-.loadding {
-  /* margin-top: 200px; */
+.ant-drawer-header {
+  padding: 30px !important;
+}
+
+.ant-drawer-body {
+  padding: 0px !important;
 }

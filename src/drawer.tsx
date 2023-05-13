@@ -1,4 +1,5 @@
-import { Drawer, Spinner } from '@blueprintjs/core'
+import { Spinner } from '@blueprintjs/core'
+import { Button, Drawer, Space, notification } from 'antd';
 import React, { useState, useEffect } from 'react'
 import { useRef } from 'react';
 import { useLayoutEffect } from 'react';
@@ -6,6 +7,7 @@ import ReactDom from 'react-dom'
 import ErrorPage from './error';
 import src from '.';
 import Loading from './loading';
+import { ArrowsAltOutlined, CloseOutlined, FullscreenExitOutlined, FullscreenOutlined, LinkOutlined, ShrinkOutlined } from '@ant-design/icons';
 
 interface MyDrawerProps {
   title: string;
@@ -19,12 +21,28 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
   url,
   size = "80%",
   height = "100%",
-  width = "100%"
 }) => {
   const [isOpen, setIsOpen] = useState(true)
   const [error, setError] = useState(false)
   const iframeRef = useRef(null)
   const [loading, setLoading] = useState(true)
+  const [width, setWidth] = useState("50%")
+  const [drawerTitle, setDrawerTitle] = useState(title)
+  // const [showLinkCopiedAlert, setShowLinkCopiedAlert] = useState(false)
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = () => {
+    api.open({
+      message: 'Link copied!',
+      className: 'custom-class',
+      duration: 2000,
+      type: 'success',
+      style: {
+        width: 300,
+      },
+    });
+  };
+
   const onClose = () => {
     setIsOpen(false)
   }
@@ -63,6 +81,8 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
 
       const xFrameOption = data?.xFrameOption || '';
       const contentSecurityPolicy = data?.contentSecurityPolicy || '';
+      const websiteTitle = data?.websiteTitle || '';
+      if (websiteTitle) setDrawerTitle(websiteTitle)
 
       console.log('xFrameOptions', xFrameOption, 'contentSecurityPolicy', contentSecurityPolicy)
       console.log(`xFrameOption?.toLowerCase() === 'DENY'.toLowerCase() || xFrameOption?.toLowerCase() === 'SAMEORIGIN'.toLowerCase()`, xFrameOption?.toLowerCase() === 'DENY'.toLowerCase() || xFrameOption?.toLowerCase() === 'SAMEORIGIN'.toLowerCase())
@@ -81,27 +101,61 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
     checkIfSupportIframe(url)
   })
 
-  return <Drawer
-    title={title}
-    isCloseButtonShown={false}
-    isOpen={isOpen}
-    onClose={onClose}
-    size={size}
-  >
-    {loading && <Loading></Loading>}
+  const copyToClipboard = (contentTobeCopied: string) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = contentTobeCopied;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    // setShowLinkCopiedAlert(true)
+    openNotification()
+  }
 
-    <div style={{ height: "100%", width: "100%" }}>
-      {error ? (<ErrorPage onClickHander={() => setIsOpen(false)} />) : (<iframe
-        id='iframe'
-        ref={iframeRef}
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-        src={url}
-        style={{ height: "100%", width: "100%", border: "none" }}
-        onLoad={handleLoaded}
-        onError={handleError}
-      ></iframe>)}
-    </div>
-  </Drawer>
+  return <>
+    {contextHolder}
+    <Drawer
+      title={drawerTitle.length > 50 ? drawerTitle.substring(0, 50) + '...' : drawerTitle}
+      // isCloseButtonShown={false}
+      // closable
+      open={isOpen}
+      // isOpen={isOpen}
+      onClose={onClose}
+      // size={'large'}
+      width={width}
+      extra={
+        <Space>
+          <LinkOutlined onClick={() => copyToClipboard(url)} />
+          {width == "100%" ?
+            <FullscreenExitOutlined onClick={() => setWidth("50%")} /> :
+            <FullscreenOutlined onClick={() => setWidth("100%")} />}
+          {width === "50%" ?
+            <ArrowsAltOutlined onClick={() => setWidth("80%")} /> :
+            <ShrinkOutlined onClick={() => setWidth("50%")} />}
+          <CloseOutlined onClick={onClose} />
+          {/* <Button type="primary" onClick={onClose}>
+          Close
+        </Button> */}
+        </Space>
+      }
+
+    >
+      {loading && <Loading></Loading>}
+
+      <div style={{ height: "100%", width: "100%" }}>
+        {error ? (<ErrorPage onClickHander={() => setIsOpen(false)} />) : (<iframe
+          id='iframe'
+          ref={iframeRef}
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+          src={url}
+          style={{ height: "100%", width: "100%", border: "none" }}
+          onLoad={handleLoaded}
+          onError={handleError}
+        ></iframe>)}
+      </div>
+    </Drawer>
+  </>
+
 }
 
 export default SideDrawer

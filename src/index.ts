@@ -20,7 +20,6 @@ const onClick = (e: MouseEvent) => {
     return
   }
 
-
   const url = (e.target as HTMLAnchorElement).href
   const title = (e.target as HTMLAnchorElement).textContent
   renderTargetInSidedrawer(url, title)

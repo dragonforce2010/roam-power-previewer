@@ -7,6 +7,7 @@
     "dev": "roamjs-scripts dev --depot"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
     "@blueprintjs/popover2": "^1.11.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
