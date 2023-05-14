@@ -12,8 +12,6 @@ const onClick = (e: MouseEvent) => {
     return
   }
 
-  console.log(e.target)
-
   const targetElement = e.target as HTMLElement
 
   if (!targetElement.classList.contains('rm-alias--external') && targetElement.tagName.toLowerCase() != 'a') {

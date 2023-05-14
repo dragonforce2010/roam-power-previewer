@@ -10,6 +10,24 @@ For now, it can only preview the website content, but in the feature, I tend to 
 `Note That`
 If you don't want to preview the website content in the sidedrawer or sometimes the website you are tring to preview has a iframe securty policy which forbids to do so, then you can simply press the following keys(`ctrl`, `meta`, `shift`) when click the link, to view the website in the browser 
 
+## Main Functions
+1. Preview the website in the side drawer in Roam when
+   1. click the pure link
+   2. click the markdown link
+2. Easily set the window size with below options
+   1. Full Screen
+![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FExploreSpace%2Fubw-IWq6PL.png?alt=media&token=82132469-0a5a-4d5b-a2ba-583464be3d02)
+   1. 80% of the screen
+![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FExploreSpace%2F0_JjSiQBvx.png?alt=media&token=75668155-bf77-40fd-9f9c-8fcc1432257f)
+   2. 50% of the screen
+![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FExploreSpace%2F8wQYajVk83.png?alt=media&token=b4f775d0-e52d-4127-a744-4714e5cf095d)
+1. copy the link
+![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FExploreSpace%2F0_JjSiQBvx.png?alt=media&token=75668155-bf77-40fd-9f9c-8fcc1432257f)
+1. Parse the website title when click a link
+![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FExploreSpace%2F81LFJ0cVpa.png?alt=media&token=edd54910-f2c8-4761-a1c7-ede19ba3bea8)
+1. Detect the target website if support iframe policy
+![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FExploreSpace%2FzHh1rGSiCX.png?alt=media&token=5bea502c-a6ba-4ef5-994c-0071c649ee6e)
+
 ## Recommendation
 I hihly recommend to use this extension with [larksuite](https://www.larksuite.com/en_us/), you can work closely with lark in roam
 ![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FMichaelSpace%2FjOX6GBxCDs.48.12.gif?alt=media&token=b6fad658-d653-4948-b8a4-3b1e7bed92ac)
