@@ -26,7 +26,7 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
   const [error, setError] = useState(false)
   const iframeRef = useRef(null)
   const [loading, setLoading] = useState(true)
-  const [width, setWidth] = useState("50%")
+  const [width, setWidth] = useState("80%")
   const [drawerTitle, setDrawerTitle] = useState(title)
   // const [showLinkCopiedAlert, setShowLinkCopiedAlert] = useState(false)
   const [api, contextHolder] = notification.useNotification();
@@ -35,7 +35,7 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
     api.open({
       message: 'Link copied!',
       className: 'custom-class',
-      duration: 2000,
+      duration: 2,
       type: 'success',
       style: {
         width: 300,
@@ -96,6 +96,7 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
         setLoading(false)
       } else {
         setError(false)
+        setLoading(false)
       }
     }
     checkIfSupportIframe(url)
@@ -116,12 +117,8 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
     {contextHolder}
     <Drawer
       title={drawerTitle.length > 50 ? drawerTitle.substring(0, 50) + '...' : drawerTitle}
-      // isCloseButtonShown={false}
-      // closable
       open={isOpen}
-      // isOpen={isOpen}
       onClose={onClose}
-      // size={'large'}
       width={width}
       extra={
         <Space>
