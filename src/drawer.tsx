@@ -77,11 +77,11 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
       if (websiteTitle) setDrawerTitle(websiteTitle)
 
       if (xFrameOption?.toLowerCase() === 'DENY'.toLowerCase() || xFrameOption?.toLowerCase() === 'SAMEORIGIN'.toLowerCase()) {
-        // console.log('iframe is not allowed by target website');
+        console.log('iframe is not allowed by target website,', ' since xFrameOption is set to deny or sameorigin');
         setError(true)
         setLoading(false)
-      } else if (contentSecurityPolicy && !contentSecurityPolicy.toLowerCase().includes('frame-ancestors')) {
-        // console.log('iframe is not allowed by target website');
+      } else if (contentSecurityPolicy && contentSecurityPolicy.toLowerCase().includes('frame-ancestors')) {
+        console.log('iframe is not allowed by target website,', ' since frame-ancestors is set');
         setError(true)
         setLoading(false)
       } else {
@@ -89,6 +89,7 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
         setLoading(false)
       }
     }
+
     checkIfSupportIframe(url)
   })
 

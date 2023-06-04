@@ -19,6 +19,12 @@ const onClick = (e: MouseEvent) => {
   }
 
   const url = (e.target as HTMLAnchorElement).href
+  if (!url ||
+    url.startsWith('https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com') ||
+    url.startsWith('https://roamresearch.com')) {
+    return
+  }
+
   const title = (e.target as HTMLAnchorElement).textContent
   renderTargetInSidedrawer(url, title)
 
