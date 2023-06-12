@@ -80,11 +80,13 @@ const SideDrawer: React.FC<MyDrawerProps> = ({
         console.log('iframe is not allowed by target website,', ' since xFrameOption is set to deny or sameorigin');
         setError(true)
         setLoading(false)
-      } else if (contentSecurityPolicy && contentSecurityPolicy.toLowerCase().includes('frame-ancestors')) {
-        console.log('iframe is not allowed by target website,', ' since frame-ancestors is set');
-        setError(true)
-        setLoading(false)
-      } else {
+      }
+      // else if (contentSecurityPolicy && contentSecurityPolicy.toLowerCase().includes('frame-ancestors')) {
+      //   console.log('iframe is not allowed by target website,', ' since frame-ancestors is set');
+      //   setError(true)
+      //   setLoading(false)
+      // }
+      else {
         setError(false)
         setLoading(false)
       }

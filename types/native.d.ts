@@ -353,18 +353,26 @@ declare type PanelConfig = {
   }[];
 };
 export declare type OnloadArgs = {
-  extensionAPI: {
-    settings: {
-      get: (k: string) => unknown;
-      getAll: () => Record<string, unknown>;
-      panel: {
-        create: (c: PanelConfig) => void;
-      };
-      set: (k: string, v: unknown) => Promise<void>;
-    };
-  };
+  extensionAPI: ExtensionAPI;
   extension: {
     version: string;
   };
 };
+
+export declare type ExtensionAPI = {
+  settings: {
+    get: (k: string) => unknown;
+    getAll: () => Record<string, unknown>;
+    panel: {
+      create: (c: PanelConfig) => void;
+    };
+    set: (k: string, v: unknown) => Promise<void>;
+  };
+  ui: {
+    commandPalette: {
+      addCommand: (c: AddCommandOptions) => Promise<void>;
+      removeCommand: (c: RemoveCommandOptions) => Promise<void>;
+    };
+  };
+}
 export { };

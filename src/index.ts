@@ -5,6 +5,7 @@ import '../types'
 import { initCommand } from './command'
 import { renderTargetInSidedrawer } from './utils'
 import './index.css'
+import { OnloadArgs } from '../types'
 
 const onClick = (e: MouseEvent) => {
   // will not do the sidebar preview if user presses the ctrl key, meta key or shift key
@@ -34,8 +35,8 @@ const onClick = (e: MouseEvent) => {
 
 
 
-function onload() {
-  initCommand()
+function onload({ extensionAPI }: OnloadArgs) {
+  initCommand(extensionAPI)
   document.querySelector('.roam-article').addEventListener('click', onClick, false)
 }
 
