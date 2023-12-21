@@ -13,6 +13,7 @@ const onClick = (e: MouseEvent) => {
     return
   }
 
+
   const targetElement = e.target as HTMLElement
 
   if (!targetElement.classList.contains('rm-alias--external') && targetElement.tagName.toLowerCase() != 'a') {
@@ -37,11 +38,11 @@ const onClick = (e: MouseEvent) => {
 
 function onload({ extensionAPI }: OnloadArgs) {
   initCommand(extensionAPI)
-  document.querySelector('.roam-article').addEventListener('click', onClick, false)
+  document.querySelector('.roam-app').addEventListener('click', onClick, false)
 }
 
 function onunload() {
-  document.querySelector('.roam-article').removeEventListener('click', onClick, false)
+  document.querySelector('.roam-app').removeEventListener('click', onClick, false)
 }
 
 export default {
